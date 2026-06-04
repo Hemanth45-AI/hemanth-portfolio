@@ -72,6 +72,9 @@ export const metadata: Metadata = {
       'Explore the portfolio of Hemanth M — software engineer, AI enthusiast, and creative technologist.',
     type: 'website',
   },
+  verification: {
+    google: 'n-jIW1JwH8AQfcSV9UdbVchF94A',
+  },
 };
 
 export default function RootLayout({
