@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+/* ─── Design Tokens ─── */
+:root {
+  --black-deep: #030712;
+  --black-card: #0a0f1a;
+  --accent-blue: hsl(210, 95%, 60%);
+  --accent-cyan: hsl(185, 90%, 55%);
+  --accent-purple: hsl(270, 80%, 70%);
+  --accent-pink: hsl(330, 85%, 65%);
+  --glass-bg: rgba(10, 15, 30, 0.75);
+  --glass-border: rgba(96, 182, 255, 0.12);
+  --text-primary: #e0f7fa;
+  --text-secondary: #94a3b8;
+  --glow-blue: 0 0 8px rgba(56, 189, 248, 0.4), 0 0 24px rgba(56, 189, 248, 0.15);
+  --glow-purple: 0 0 8px rgba(168, 85, 247, 0.4), 0 0 24px rgba(168, 85, 247, 0.15);
+}
+
+/* ─── Global Resets ─── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  margin: 0;
+  background-color: var(--black-deep);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Custom Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--black-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--accent-blue), var(--accent-purple));
+  border-radius: 3px;
+}
+
+/* ─── Reusable Component Classes ─── */
+
+/* Glass Card */
+.glass-card {
+  backdrop-filter: blur(24px) saturate(1.8);
+  -webkit-backdrop-filter: blur(24px) saturate(1.8);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.glass-card:hover {
+  border-color: rgba(96, 182, 255, 0.28);
+  box-shadow: var(--glow-blue);
+}
+
+/* Neon Text Glow */
+.neon-glow {
+  text-shadow:
+    0 0 7px rgba(56, 189, 248, 0.5),
+    0 0 20px rgba(56, 189, 248, 0.25),
+    0 0 42px rgba(56, 189, 248, 0.1);
+}
+
+.neon-glow-purple {
+  text-shadow:
+    0 0 7px rgba(168, 85, 247, 0.5),
+    0 0 20px rgba(168, 85, 247, 0.25),
+    0 0 42px rgba(168, 85, 247, 0.1);
+}
+
+/* Gradient Background */
+.gradient-bg {
+  background: linear-gradient(
+    135deg,
+    rgba(3, 7, 18, 0.6) 0%,
+    rgba(5, 13, 26, 0.6) 25%,
+    rgba(10, 5, 32, 0.7) 50%,
+    rgba(5, 13, 26, 0.6) 75%,
+    rgba(3, 7, 18, 0.6) 100%
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 25s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue), var(--accent-purple));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Section Divider */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-blue), var(--accent-purple), transparent);
+  opacity: 0.3;
+}
+
+/* Pulse ring animation */
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 0.5; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+.animate-pulse-ring {
+  animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Float animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Bounce slow */
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+.animate-bounce-slow {
+  animation: bounce-slow 2s ease-in-out infinite;
+}
+
+/* ─── Selection Color ─── */
+::selection {
+  background: rgba(56, 189, 248, 0.3);
+  color: #fff;
+}
