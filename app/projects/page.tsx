@@ -6,7 +6,7 @@ import { portfolioData } from '../data/portfolio';
 import SectionHeading from '../components/UI/SectionHeading';
 import NeonCard from '../components/UI/NeonCard';
 
-const staggerContainer: Variants = {
+const staggerContainer: any = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -14,7 +14,7 @@ const staggerContainer: Variants = {
   },
 };
 
-const scaleIn: Variants = {
+const scaleIn: any = {
   hidden: { opacity: 0, scale: 0.85 },
   visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: 'easeOut' } },
 };
